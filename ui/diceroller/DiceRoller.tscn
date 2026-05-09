@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://opq7dn6lagp"]
+
+[node name="DiceRoller" type="CanvasLayer" unique_id=1259711616]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2133563371]
+
+[node name="Control" type="Control" parent="." unique_id=1925138846]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
