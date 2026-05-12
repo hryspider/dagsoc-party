@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://opq7dn6lagp"]
 
-[node name="DiceRoller" type="CanvasLayer" unique_id=1259711616]
+[ext_resource type="Script" uid="uid://b1hj5nfnjqa32" path="res://ui/diceroller/dice_roller.gd" id="1_yiab3"]
+[ext_resource type="PackedScene" uid="uid://dntdtygpt6cp2" path="res://3d/dicebase.tscn" id="2_lop23"]
 
-[node name="Node3D" type="Node3D" parent="." unique_id=2133563371]
+[node name="Node3D" type="Node3D" unique_id=2133563371]
+script = ExtResource("1_yiab3")
 
-[node name="Control" type="Control" parent="." unique_id=1925138846]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Die" parent="." unique_id=1716515355 instance=ExtResource("2_lop23")]
+
+[node name="Camera3D" type="Camera3D" parent="Die" unique_id=236077431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.452673)
