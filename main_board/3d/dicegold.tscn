@@ -1,19 +1,19 @@
-[gd_scene format=4 uid="uid://dntdtygpt6cp2"]
+[gd_scene format=4 uid="uid://b5uj5qu4cjxub"]
 
-[ext_resource type="Texture2D" uid="uid://hoxbdxgbmnjk" path="res://sprites/dice.png" id="1_l1clp"]
-[ext_resource type="Texture2D" uid="uid://clbnud3vbojn6" path="res://sprites/dice_height_displacement.png" id="2_m8ffj"]
-[ext_resource type="Texture2D" uid="uid://lg8x0gscqtxm" path="res://sprites/dice_height_normal.png" id="3_0vxwe"]
+[ext_resource type="Texture2D" uid="uid://cqb1com7pdwyt" path="res://main_board/sprites/dice_coloured.png" id="1_btwkm"]
+[ext_resource type="Texture2D" uid="uid://clbnud3vbojn6" path="res://main_board/sprites/dice_height_displacement.png" id="2_3h1q4"]
+[ext_resource type="Texture2D" uid="uid://lg8x0gscqtxm" path="res://main_board/sprites/dice_height_normal.png" id="3_nm1m1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vewbf"]
 resource_name = "Material"
-albedo_color = Color(0.91, 0.91, 0.91, 0.25882354)
-albedo_texture = ExtResource("1_l1clp")
-roughness = 0.5
+albedo_color = Color(1, 0.7435, 0.19, 1)
+albedo_texture = ExtResource("1_btwkm")
+metallic = 1.0
+roughness = 0.54
 normal_enabled = true
-normal_texture = ExtResource("3_0vxwe")
-rim_tint = 1.0
+normal_texture = ExtResource("3_nm1m1")
 heightmap_enabled = true
-heightmap_texture = ExtResource("2_m8ffj")
+heightmap_texture = ExtResource("2_3h1q4")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_22a6p"]
 _surfaces = [{
@@ -47,5 +47,5 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_22a6p")
 
-[node name="Die" type="MeshInstance3D" unique_id=1716515355]
+[node name="Gold Die" type="MeshInstance3D" unique_id=1716515355]
 mesh = SubResource("ArrayMesh_oimsd")

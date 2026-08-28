@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://opq7dn6lagp"]
 
-[ext_resource type="Script" uid="uid://h5euvustf5gc" path="res://ui/diceroller/dice_roller.gd" id="1_yiab3"]
-[ext_resource type="PackedScene" uid="uid://dll1k7kmi8sn0" path="res://ui/diceroller/regular_die.tscn" id="2_g32y8"]
-[ext_resource type="PackedScene" uid="uid://bfxbr3abr5o46" path="res://ui/diceroller/gold_die.tscn" id="2_lop23"]
+[ext_resource type="Script" uid="uid://h5euvustf5gc" path="res://main_board/ui/diceroller/dice_roller.gd" id="1_yiab3"]
+[ext_resource type="PackedScene" uid="uid://dll1k7kmi8sn0" path="res://main_board/ui/diceroller/regular_die.tscn" id="2_g32y8"]
+[ext_resource type="PackedScene" uid="uid://bfxbr3abr5o46" path="res://main_board/ui/diceroller/gold_die.tscn" id="2_lop23"]
 
 [sub_resource type="Environment" id="Environment_yiab3"]
 ambient_light_source = 3

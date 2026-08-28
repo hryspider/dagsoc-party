@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://dopob5lfdh6su"]
+
+[ext_resource type="Shader" uid="uid://ds5is36ehacrm" path="res://main_board/shaders/uv_glide.gdshader" id="1_dj0ed"]
+[ext_resource type="Texture2D" uid="uid://dt0difs0v8pmq" path="res://main_board/sprites/logodice.png" id="1_dkw7r"]
+[ext_resource type="Texture2D" uid="uid://puxwj1l83lbm" path="res://main_board/sprites/dagdicetile.png" id="1_vbtl4"]
+[ext_resource type="Texture2D" uid="uid://ctinxvhn7qlem" path="res://main_board/sprites/logomain.png" id="2_vbtl4"]
+[ext_resource type="Script" uid="uid://bl7uhvsee22s4" path="res://main_board/scripts/bounce_anim.gd" id="3_dj0ed"]
+[ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="6_rj3mo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xhw5p"]
+shader = ExtResource("1_dj0ed")
+shader_parameter/speed = Vector2(-0.1, 0.1)
+
+[node name="Title" type="Control" unique_id=1625598450]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=762101810]
+material = SubResource("ShaderMaterial_xhw5p")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -453.0
+offset_right = 274.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_rotation = 0.15882497
+texture = ExtResource("1_vbtl4")
+stretch_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=256264639]
+layout_mode = 1
+anchor_left = 0.4826389
+anchor_top = 0.3148148
+anchor_right = 0.5173611
+anchor_bottom = 0.53086424
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logodice" type="Sprite2D" parent="Control" unique_id=568875597]
+position = Vector2(-12.836853, -125)
+scale = Vector2(0.6549099, 0.65490997)
+texture = ExtResource("1_dkw7r")
+script = ExtResource("3_dj0ed")
+wait_time = 0.2
+
+[node name="Logomain" type="Sprite2D" parent="Control" unique_id=1498644674]
+position = Vector2(171.16333, -62)
+scale = Vector2(0.4913579, 0.49135795)
+texture = ExtResource("2_vbtl4")
+script = ExtResource("3_dj0ed")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=427351544]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39583337
+anchor_top = 0.45679012
+anchor_right = 0.6041667
+anchor_bottom = 0.8788889
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1124820094]
+layout_mode = 2
+theme = ExtResource("6_rj3mo")
+text = "Play"
+
+[node name="View Minigames" type="Button" parent="VBoxContainer" unique_id=1399993045]
+layout_mode = 2
+theme = ExtResource("6_rj3mo")
+text = "View Minigames"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=813571701]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("6_rj3mo")
+text = "Quit"
+
+[node name="Label" type="Label" parent="." unique_id=1273324516]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("6_rj3mo")
+theme_override_colors/font_color = Color(1, 1, 1, 0.5176471)
+text = "2026 University of Southampton's Digital Arts and Gamedev Society"
+horizontal_alignment = 1

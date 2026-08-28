@@ -14,6 +14,12 @@ config/name="DAGsoc Party"
 config/features=PackedStringArray("4.8", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
