@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ctinxvhn7qlem" path="res://main_board/sprites/logomain.png" id="2_vbtl4"]
 [ext_resource type="Script" uid="uid://bl7uhvsee22s4" path="res://main_board/scripts/bounce_anim.gd" id="3_dj0ed"]
 [ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="6_rj3mo"]
+[ext_resource type="Script" uid="uid://brn46314k2ke5" path="res://main_board/scripts/button_to_scene.gd" id="7_xwu8e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xhw5p"]
 shader = ExtResource("1_dj0ed")
@@ -78,6 +79,8 @@ text = "Play"
 layout_mode = 2
 theme = ExtResource("6_rj3mo")
 text = "View Minigames"
+script = ExtResource("7_xwu8e")
+scene_path = "res://main_board/rooms/minigame_viewer.tscn"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=813571701]
 layout_mode = 2

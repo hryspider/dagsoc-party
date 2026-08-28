@@ -22,5 +22,5 @@ This is required to exist here for a minigame to be read in.
 - Description
    - This is a good place to put instructions.
 - Scene Path
-   -  The local path to the scene that will get loaded in when the minigame commences.
-	Click on your minigame's `data.tres` and you should be able to edit these fields in the Inspector.
+   -  The relative path to the scene that will get loaded in when the minigame commences.
+	Double-click on your minigame's `data.tres` in the Files and you should be able to edit these fields in the Inspector.

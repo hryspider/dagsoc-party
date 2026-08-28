@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MinigameData" format=3 uid="uid://bpe0jdfhw81fg"]
+
+[ext_resource type="Script" uid="uid://ciry1a2b6alm5" path="res://main_board/resources/MinigameData.gd" id="1_f1lqq"]
+
+[resource]
+script = ExtResource("1_f1lqq")
+title = "A second minigame"
+author = "Me"
+description = "Pee pee town."
+main_scene_path = "idk"
+metadata/_custom_type_script = "uid://ciry1a2b6alm5"

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cu14c0vt76uye"]
+
+[ext_resource type="Shader" uid="uid://ds5is36ehacrm" path="res://main_board/shaders/uv_glide.gdshader" id="1_hd4q2"]
+[ext_resource type="Script" uid="uid://cfpptqb3geaik" path="res://main_board/rooms/minigame_viewer.gd" id="1_yamml"]
+[ext_resource type="Texture2D" uid="uid://puxwj1l83lbm" path="res://main_board/sprites/dagdicetile.png" id="2_fhfya"]
+[ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="5_hb28x"]
+[ext_resource type="Script" uid="uid://brn46314k2ke5" path="res://main_board/scripts/button_to_scene.gd" id="5_yamml"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8wjj"]
+shader = ExtResource("1_hd4q2")
+shader_parameter/speed = Vector2(0.1, 0.1)
+
+[node name="MinigameViewer" type="Control" unique_id=1993985079]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yamml")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=103638361]
+material = SubResource("ShaderMaterial_v8wjj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -453.0
+offset_right = 274.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_rotation = 0.15882497
+texture = ExtResource("2_fhfya")
+stretch_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=388786150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 270.0
+offset_top = 96.0
+offset_right = -270.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1355932965]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="." unique_id=722190021]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -84.0
+offset_right = 220.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_hb28x")
+text = "Back"
+script = ExtResource("5_yamml")
+scene_path = "res://main_board/rooms/title.tscn"
+
+[node name="Label" type="Label" parent="." unique_id=969505293]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("5_hb28x")
+theme_override_font_sizes/font_size = 64
+text = "Loaded Minigames"
+horizontal_alignment = 1
+
+[node name="Fails" type="Label" parent="." unique_id=300484592]
+modulate = Color(1, 0.36, 0.36, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8466667
+anchor_right = 1.0
+anchor_bottom = 0.89555556
+grow_horizontal = 2
+theme = ExtResource("5_hb28x")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
