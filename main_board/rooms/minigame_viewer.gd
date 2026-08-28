@@ -18,7 +18,12 @@ func _ready():
 				v_box_container.add_child(preview_inst)
 				preview_inst.data = data
 				preview_inst.directory.text = "In folder %s" % i
-			else: data = null
+			else:
+				printerr("Error loading Minigame Data from %s: data.tres is not a MinigameData Resource." % i)
+				data = null
+		else:
+			printerr("Error loading Minigame Data from %s: data.tres not found." % i)
+			print("!!! Your minigame needs a data.tres MinigameData resource file to load.")
 		if data == null:
 			load_failed_dirs.append(i)
 	for i in load_failed_dirs:
