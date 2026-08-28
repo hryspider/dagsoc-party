@@ -11,6 +11,7 @@ albedo_texture = ExtResource("1_l1clp")
 roughness = 0.5
 normal_enabled = true
 normal_texture = ExtResource("3_0vxwe")
+rim_tint = 1.0
 heightmap_enabled = true
 heightmap_texture = ExtResource("2_m8ffj")
 

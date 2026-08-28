@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dll1k7kmi8sn0"]
+
+[ext_resource type="Script" uid="uid://b1hj5nfnjqa32" path="res://ui/diceroller/die.gd" id="1_eacci"]
+[ext_resource type="PackedScene" uid="uid://dntdtygpt6cp2" path="res://3d/dicebase.tscn" id="2_bggac"]
+[ext_resource type="Script" uid="uid://dy62yf4kctpa7" path="res://ui/diceroller/dice_value.gd" id="3_yn7qw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yiab3"]
+bounce = 0.64
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yiab3"]
+size = Vector3(2, 2, 2)
+
+[node name="Die" type="RigidBody3D" unique_id=728790847]
+mass = 50.0
+physics_material_override = SubResource("PhysicsMaterial_yiab3")
+max_contacts_reported = 1
+angular_damp_mode = 1
+script = ExtResource("1_eacci")
+
+[node name="Model" parent="." unique_id=1716515355 instance=ExtResource("2_bggac")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=535428661]
+shape = SubResource("BoxShape3D_yiab3")
+
+[node name="1" type="Node3D" parent="." unique_id=615670885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+script = ExtResource("3_yn7qw")
+value = 1
+
+[node name="2" type="Node3D" parent="." unique_id=1804492772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("3_yn7qw")
+value = 2
+
+[node name="3" type="Node3D" parent="." unique_id=2053367266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("3_yn7qw")
+value = 3
+
+[node name="4" type="Node3D" parent="." unique_id=1000553517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+script = ExtResource("3_yn7qw")
+value = 4
+
+[node name="5" type="Node3D" parent="." unique_id=367742527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+script = ExtResource("3_yn7qw")
+value = 5
+
+[node name="6" type="Node3D" parent="." unique_id=161102422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+script = ExtResource("3_yn7qw")
+value = 6
