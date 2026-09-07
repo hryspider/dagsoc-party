@@ -65,7 +65,7 @@ anchors_preset = -1
 anchor_left = 0.39583337
 anchor_top = 0.45679012
 anchor_right = 0.6041667
-anchor_bottom = 0.8788889
+anchor_bottom = 0.9388889
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -74,6 +74,8 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme = ExtResource("6_rj3mo")
 text = "Play"
+script = ExtResource("7_xwu8e")
+scene_path = "res://main_board/rooms/character_build_screen.tscn"
 
 [node name="View Minigames" type="Button" parent="VBoxContainer" unique_id=1399993045]
 layout_mode = 2

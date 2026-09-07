@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://clvd72b8rvchi"]
+
+[ext_resource type="Shader" uid="uid://ds5is36ehacrm" path="res://main_board/shaders/uv_glide.gdshader" id="1_qf038"]
+[ext_resource type="Texture2D" uid="uid://puxwj1l83lbm" path="res://main_board/sprites/dagdicetile.png" id="2_kiflc"]
+[ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="3_pagd5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c1h6"]
+shader = ExtResource("1_qf038")
+shader_parameter/speed = Vector2(0.1, 0.1)
+
+[node name="How To Play" type="Control" unique_id=995867829]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=706572173]
+material = SubResource("ShaderMaterial_8c1h6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -453.0
+offset_right = 274.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_rotation = 0.15882497
+texture = ExtResource("2_kiflc")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=782492922]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 41.0
+offset_top = 5.0
+offset_right = -41.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme = ExtResource("3_pagd5")
+theme_override_font_sizes/font_size = 72
+text = "Minigame Title"

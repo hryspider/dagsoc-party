@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://dcime5i6uyll1"]
+
+[ext_resource type="Script" uid="uid://k15f4n6ee712" path="res://main_board/ui/character_builder/character_builder.gd" id="1_8vwwu"]
+[ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="1_g2on6"]
+[ext_resource type="Texture2D" uid="uid://bh1j10cye6oap" path="res://main_board/sprites/head.png" id="2_8vwwu"]
+[ext_resource type="Texture2D" uid="uid://cosxu16m4254j" path="res://main_board/sprites/pixelarrow.png" id="3_5lal3"]
+[ext_resource type="Texture2D" uid="uid://bta2ta006dpei" path="res://main_board/sprites/eyes.png" id="3_ax821"]
+[ext_resource type="Texture2D" uid="uid://by542wghjv81p" path="res://main_board/sprites/noses.png" id="4_5lal3"]
+[ext_resource type="Texture2D" uid="uid://d3xq0p1l61iig" path="res://main_board/sprites/mouths.png" id="5_nqgao"]
+
+[node name="Control" type="Control" unique_id=2035132255]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 636.0
+offset_top = 115.0
+offset_right = -636.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8vwwu")
+
+[node name="Player" type="Label" parent="." unique_id=480705922]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_right = 140.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme = ExtResource("1_g2on6")
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 36
+theme_override_font_sizes/font_size = 62
+text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Above" type="Label" parent="." unique_id=83708109]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_top = 92.0
+offset_right = 140.0
+offset_bottom = 180.0
+grow_horizontal = 2
+theme = ExtResource("1_g2on6")
+theme_override_colors/font_color = Color(1, 1, 1, 0.53333336)
+theme_override_font_sizes/font_size = 23
+text = "Eye Type"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=618176809]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 140.0
+offset_right = 72.0
+offset_bottom = 228.0
+grow_horizontal = 2
+theme = ExtResource("1_g2on6")
+theme_override_font_sizes/font_size = 33
+text = "Eye Type"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Container" type="HBoxContainer" parent="Label" unique_id=1044517948]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = 23.0
+offset_right = 38.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pixelarrow" type="TextureRect" parent="Label/Container" unique_id=402668681]
+custom_minimum_size = Vector2(27.18, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+offset_transform_enabled = true
+texture = ExtResource("3_5lal3")
+stretch_mode = 4
+
+[node name="Pixelarrow2" type="TextureRect" parent="Label/Container" unique_id=2072342234]
+custom_minimum_size = Vector2(27.18, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+offset_transform_enabled = true
+texture = ExtResource("3_5lal3")
+stretch_mode = 4
+flip_h = true
+
+[node name="Below" type="Label" parent="." unique_id=1559671837]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_top = 188.0
+offset_right = 140.0
+offset_bottom = 276.0
+grow_horizontal = 2
+theme = ExtResource("1_g2on6")
+theme_override_colors/font_color = Color(1, 1, 1, 0.53333336)
+theme_override_font_sizes/font_size = 23
+text = "Eye Type"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=1856017437]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -272.0
+offset_right = 20.0
+offset_bottom = -232.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Head" type="Sprite2D" parent="Control" unique_id=143548728]
+self_modulate = Color(0.66999996, 0.824, 1, 1)
+position = Vector2(24, -8)
+scale = Vector2(3.211, 3.211)
+texture = ExtResource("2_8vwwu")
+vframes = 3
+
+[node name="Eyes" type="Sprite2D" parent="Control/Head" unique_id=953360506]
+position = Vector2(-14, -8.995703)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ax821")
+hframes = 5
+vframes = 2
+frame = 2
+
+[node name="Eyes2" type="Sprite2D" parent="Control/Head" unique_id=224708206]
+position = Vector2(14, -8.995703)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ax821")
+flip_h = true
+hframes = 5
+vframes = 2
+frame = 2
+
+[node name="Noses" type="Sprite2D" parent="Control/Head" unique_id=1239889119]
+scale = Vector2(2, 2)
+texture = ExtResource("4_5lal3")
+offset = Vector2(0, 1.72)
+hframes = 5
+vframes = 2
+frame = 4
+
+[node name="Mouths" type="Sprite2D" parent="Control/Head" unique_id=1807351969]
+scale = Vector2(2, 2)
+texture = ExtResource("5_nqgao")
+offset = Vector2(0, 6)
+hframes = 5
+vframes = 2
+frame = 9

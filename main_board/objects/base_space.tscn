@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bg4yj0u1mh8ic"]
+
+[ext_resource type="Texture2D" uid="uid://ddcu21qqggdp0" path="res://main_board/sprites/space.png" id="1_yufut"]
+
+[node name="Node3D" type="Node3D" unique_id=1522152539]
+
+[node name="Space" type="Sprite3D" parent="." unique_id=643264467]
+transform = Transform3D(2.86, 0, 0, 0, -1.2501457e-07, 2.86, 0, -2.86, -1.2501457e-07, 0, 0, 0)
+modulate = Color(0.39, 0.44083327, 1, 1)
+texture = ExtResource("1_yufut")

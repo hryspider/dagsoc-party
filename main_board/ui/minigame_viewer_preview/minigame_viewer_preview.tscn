@@ -3,6 +3,13 @@
 [ext_resource type="Script" uid="uid://c4lxiyc57yoo1" path="res://main_board/ui/minigame_viewer_preview/minigame_viewer_preview.gd" id="1_eopu4"]
 [ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="1_wfo62"]
 
+[sub_resource type="Gradient" id="Gradient_eopu4"]
+colors = PackedColorArray(0.16, 0.0672, 0.13370666, 1, 0.29625666, 0.1922, 0.31, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xhw5p"]
+gradient = SubResource("Gradient_eopu4")
+fill_from = Vector2(1, 1)
+
 [node name="MinigameViewerPreview" type="Control" unique_id=1982548345]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
@@ -13,14 +20,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eopu4")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=749979703]
+[node name="Bg" type="TextureRect" parent="." unique_id=328777810]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0676, 0.13, 0.08008, 1)
+texture = SubResource("GradientTexture2D_xhw5p")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1960327807]
 layout_mode = 1

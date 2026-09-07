@@ -1,2 +1,0 @@
-extends BaseSpace
-class_name MinigameSpace

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dstmg68fspta1"]
+
+[ext_resource type="Script" uid="uid://dny4basgkeueh" path="res://main_board/scripts/space_generator.gd" id="1_4jllx"]
+[ext_resource type="PackedScene" uid="uid://onpyx3kh26ao" path="res://main_board/objects/playerpiece.tscn" id="2_svsh1"]
+
+[sub_resource type="Curve3D" id="Curve3D_qt7l3"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.30979085, 0.00036621094, -0.56795955, 0, 0, 50, 0, 0, -74.31, 37.945, 5.51, -30.159, 0, 0, -90, 0, 0, 90, -161.04, 19.48, -25.022, -10, 0.15, 0, 100, 16.29, 0, -125.303, 31.61, 72.655, 24.8, 5.95, 32.34, -43.4, 0, -46.85, -11.218, 32.719, -39.834, 0, 0, 0, 0, 0, 0, -76.93, 40, -23.471),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qu0op"]
+sky_top_color = Color(0.10493188, 0.041812576, 0.22037798, 1)
+sky_horizon_color = Color(0.113580234, 0.0055921194, 0.18440682, 1)
+sky_curve = 0.18467171
+ground_bottom_color = Color(0.10783332, 0.041999996, 0.2, 1)
+ground_horizon_color = Color(0.20399997, 0, 0.34, 1)
+ground_curve = 0.18379146
+sun_angle_max = 0.0
+sun_curve = 0.1846725
+
+[sub_resource type="Sky" id="Sky_txsxn"]
+sky_material = SubResource("ProceduralSkyMaterial_qu0op")
+
+[sub_resource type="Environment" id="Environment_qt7l3"]
+background_mode = 2
+sky = SubResource("Sky_txsxn")
+ambient_light_source = 2
+ambient_light_color = Color(0.3987929, 0.39879292, 0.3987929, 1)
+
+[node name="Node3D" type="Node3D" unique_id=881500191 node_paths=PackedStringArray("path")]
+script = ExtResource("1_4jllx")
+string_data = "0500000-1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+path = NodePath("Path3D")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1148195066]
+curve = SubResource("Curve3D_qt7l3")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1341590751]
+transform = Transform3D(0.2532868, 0, -0.96736884, 0, 0.9999998, 0, 0.96736884, 0, 0.2532868, 21.807356, 3.147518, 2.878751)
+progress = 22.44226
+rotation_mode = 1
+
+[node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D" unique_id=192379756]
+transform = Transform3D(1, 0, 0, 0, 0.76604456, 0.6427876, 0, -0.64278764, 0.76604444, 0, 15.168, 10.193)
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1851076928]
+environment = SubResource("Environment_qt7l3")
+
+[node name="PlayerPiece" parent="." unique_id=1907818496 instance=ExtResource("2_svsh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)

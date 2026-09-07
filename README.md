@@ -12,6 +12,8 @@ Do not edit content in here when making your minigame, but feel free to use it.
 All minigames are stored in the `minigames` folder.
 Each minigame and their unique assets are stored in their own separate folder inside this.
 
+
+
 We have made an example minigame (`res://minigames/example_minigame/`) that you're reccomended to duplicate and work from as a base.
 ### Minigame metadata
 At the top level of a minigame's folder, there is a file called `data.tres`.

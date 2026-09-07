@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://rlpqpdee7cfq"]
+
+[ext_resource type="PackedScene" uid="uid://bg4yj0u1mh8ic" path="res://main_board/objects/base_space.tscn" id="1_m5fhs"]
+[ext_resource type="Script" uid="uid://bd0l2id4prnxb" path="res://main_board/objects/move_space.gd" id="2_y5cwx"]
+[ext_resource type="FontFile" uid="uid://dg7xe6qmki2r5" path="res://main_board/fonts/retro-pixel-cute-prop.ttf" id="3_t2wdd"]
+
+[node name="Space" unique_id=643264467 instance=ExtResource("1_m5fhs")]
+script = ExtResource("2_y5cwx")
+
+[node name="Label3D" type="Label3D" parent="." index="0" unique_id=1423514723]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+sorting_offset = 1.0
+outline_modulate = Color(0.10980392, 0.10980392, 0.19215687, 1)
+text = "+1"
+font = ExtResource("3_t2wdd")
+font_size = 726
+outline_size = 50

@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="DAGsoc Party"
+run/main_scene="uid://dopob5lfdh6su"
 config/features=PackedStringArray("4.8", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://dmt8qgm6c2ty2"
 
 [display]
 
@@ -31,6 +36,23 @@ p1_left={
 "axis": 0,
 "axis_value": -1.0,
 "script": null
+), Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 4194319,
+"key_label": 0,
+"unicode": 0,
+"location": 0,
+"echo": false,
+"script": null
 )]
 }
 p1_right={
@@ -41,6 +63,23 @@ p1_right={
 "device": 0,
 "axis": 0,
 "axis_value": 1.0,
+"script": null
+), Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 4194321,
+"key_label": 0,
+"unicode": 0,
+"location": 0,
+"echo": false,
 "script": null
 )]
 }
@@ -53,6 +92,23 @@ p1_up={
 "axis": 1,
 "axis_value": -1.0,
 "script": null
+), Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 4194320,
+"key_label": 0,
+"unicode": 0,
+"location": 0,
+"echo": false,
+"script": null
 )]
 }
 p1_down={
@@ -63,6 +119,23 @@ p1_down={
 "device": 0,
 "axis": 1,
 "axis_value": 1.0,
+"script": null
+), Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 4194322,
+"key_label": 0,
+"unicode": 0,
+"location": 0,
+"echo": false,
 "script": null
 )]
 }
@@ -581,5 +654,6 @@ p4_right_bumper={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"

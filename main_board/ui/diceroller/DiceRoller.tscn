@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://opq7dn6lagp"]
 
 [ext_resource type="Script" uid="uid://h5euvustf5gc" path="res://main_board/ui/diceroller/dice_roller.gd" id="1_yiab3"]
-[ext_resource type="PackedScene" uid="uid://dll1k7kmi8sn0" path="res://main_board/ui/diceroller/regular_die.tscn" id="2_g32y8"]
-[ext_resource type="PackedScene" uid="uid://bfxbr3abr5o46" path="res://main_board/ui/diceroller/gold_die.tscn" id="2_lop23"]
 [ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="4_jorya"]
 
 [sub_resource type="Environment" id="Environment_yiab3"]
@@ -10,36 +8,29 @@ ambient_light_source = 3
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lop23"]
 
-[node name="Node3D" type="Node3D" unique_id=2133563371 node_paths=PackedStringArray("dice")]
+[node name="DiceRoller" type="CanvasLayer" unique_id=978217922]
 script = ExtResource("1_yiab3")
-dice = [NodePath("Die"), NodePath("Die2"), NodePath("Die3")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=236077431]
-transform = Transform3D(1, 0, 0, 0, 0.9721658, 0.23429383, 0, -0.23429383, 0.9721658, 0, 4.4070406, 15.291002)
+transform = Transform3D(1, 0, 0, 0, 0.657371, 0.75356716, 0, -0.75356716, 0.657371, 0, 7.3369055, 6.2156696)
 environment = SubResource("Environment_yiab3")
+projection = 1
+current = true
+size = 16.625
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1527286368]
-transform = Transform3D(0.9419813, -0.3356653, 0, 0.22591127, 0.63397735, 0.7396193, -0.24826452, -0.69670755, 0.6730254, 0, 5.182501, 0)
+transform = Transform3D(0.9519521, 0.01747784, -0.30574816, 0.22591127, 0.63397735, 0.7396193, 0.20676433, -0.77315414, 0.59956765, 0, 5.182501, 0)
 light_color = Color(0.66083336, 0.63, 1, 1)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=3967182]
-transform = Transform3D(0.61333454, -0.6073897, -0.5048747, 0.27169657, 0.76246524, -0.58722025, 0.74162096, 0.22298975, 0.632672, 0, -3.8542118, -1.4652381)
+transform = Transform3D(0.9949952, -0.09935187, -0.010681151, 0.041042168, 0.30887547, 0.9502167, -0.091106646, -0.94589937, 0.3114072, 0, -3.2086987, -1.4652381)
 light_energy = 0.592
-
-[node name="Die" parent="." unique_id=728790847 instance=ExtResource("2_g32y8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1584223013]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.2845705, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1732381354]
 shape = SubResource("WorldBoundaryShape3D_lop23")
-
-[node name="Die2" parent="." unique_id=1200415104 instance=ExtResource("2_lop23")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-
-[node name="Die3" parent="." unique_id=863076225 instance=ExtResource("2_lop23")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, 0)
 
 [node name="Output" type="Label" parent="." unique_id=1877712446]
 anchors_preset = 8
@@ -57,3 +48,6 @@ theme = ExtResource("4_jorya")
 theme_override_font_sizes/font_size = 120
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=259950776]
+layer = 3
