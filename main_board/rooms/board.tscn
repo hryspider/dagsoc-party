@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dstmg68fspta1"]
 
 [ext_resource type="Script" uid="uid://dny4basgkeueh" path="res://main_board/scripts/space_generator.gd" id="1_4jllx"]
+[ext_resource type="PackedScene" uid="uid://opq7dn6lagp" path="res://main_board/ui/diceroller/DiceRoller.tscn" id="2_7ur1y"]
+[ext_resource type="Script" uid="uid://dfk887ybchhhg" path="res://main_board/objects/path_follow_3d.gd" id="2_ag8c5"]
 [ext_resource type="PackedScene" uid="uid://onpyx3kh26ao" path="res://main_board/objects/playerpiece.tscn" id="2_svsh1"]
 
 [sub_resource type="Curve3D" id="Curve3D_qt7l3"]
@@ -27,27 +29,42 @@ sky_material = SubResource("ProceduralSkyMaterial_qu0op")
 background_mode = 2
 sky = SubResource("Sky_txsxn")
 ambient_light_source = 2
-ambient_light_color = Color(0.3987929, 0.39879292, 0.3987929, 1)
+ambient_light_color = Color(0.62355983, 0.6235599, 0.6235597, 1)
 
 [node name="Node3D" type="Node3D" unique_id=881500191 node_paths=PackedStringArray("path")]
 script = ExtResource("1_4jllx")
-string_data = "0500000-1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+string_data = "3453876878768768876876"
 path = NodePath("Path3D")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1148195066]
 curve = SubResource("Curve3D_qt7l3")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1341590751]
-transform = Transform3D(0.2532868, 0, -0.96736884, 0, 0.9999998, 0, 0.96736884, 0, 0.2532868, 21.807356, 3.147518, 2.878751)
-progress = 22.44226
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1341590751 node_paths=PackedStringArray("target")]
+transform = Transform3D(-0.47669056, 0, -0.87904257, 0, 0.9999998, 0, 0.87904257, 0, -0.47669056, 0.30979085, 0.00036621094, -0.56795955)
 rotation_mode = 1
+script = ExtResource("2_ag8c5")
+target = NodePath("../../PlayerPiece")
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D" unique_id=192379756]
-transform = Transform3D(1, 0, 0, 0, 0.76604456, 0.6427876, 0, -0.64278764, 0.76604444, 0, 15.168, 10.193)
+transform = Transform3D(1, 0, 0, 0, 0.76604456, 0.6427876, 0, -0.64278764, 0.76604444, 0, 10.12, 6.86)
 current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Path3D/PathFollow3D/Camera3D" unique_id=1083892642]
+transform = Transform3D(-0.5640303, -0.48956624, 0.66497725, -0.17934784, 0.8587022, 0.48006764, -0.80604243, 0.1515105, -0.5721369, 0.6469519, -3.3443983, -11.758928)
+light_indirect_energy = 10.556
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Path3D/PathFollow3D/Camera3D" unique_id=546781772]
+omni_range = 502.79
+omni_attenuation = 0.373
+
+[node name="DiceRoller" parent="Path3D/PathFollow3D" unique_id=26530726 instance=ExtResource("2_7ur1y")]
+transform = Transform3D(-0.47671455, 0, 0.8790868, 0, 1.0000002, 0, -0.8790868, 0, -0.47671455, 0, -0.13, -7.41)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1851076928]
 environment = SubResource("Environment_qt7l3")
 
 [node name="PlayerPiece" parent="." unique_id=1907818496 instance=ExtResource("2_svsh1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(-0.47669056, 0, -0.87904257, 0, 0.9999998, 0, 0.87904257, 0, -0.47669056, 0.30979085, 0.00036621094, -0.56795955)
+
+[node name="Camera3D" type="Camera3D" parent="PlayerPiece" unique_id=924111453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.6180735)
