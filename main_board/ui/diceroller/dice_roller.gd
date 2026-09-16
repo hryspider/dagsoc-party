@@ -14,6 +14,8 @@ var die_nodes = []
 signal finished(val)
 
 func run():
+	result = 0
+	rolled = false
 	var length = len(die_list)
 	dice_waiting_on = length
 	var pos = (0.5-length*0.5) *SPACING

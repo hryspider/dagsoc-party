@@ -4,17 +4,23 @@ extends Node3D
 @onready var nose = $Face/Nose
 @onready var mouth = $Face/Mouth
 @onready var face = $Face
+@onready var body = $Body
 
 var jumping := false
 var from_pos : Vector3
 var to_pos : Vector3
 var progress = 0.0
+@onready var offset = Vector3(1, 0, 1).rotated(Vector3(0, 1, 0), player_number*PI/2)
 signal jumping_finished
 signal jumping_false
 
 @export_range(0, 3) var player_number : int
 
 func _ready():
+	var material = StandardMaterial3D.new()
+	material.albedo_color = Global.PLAYER_COLOURS[player_number]
+	material.vertex_color_use_as_albedo = true
+	body.set_surface_override_material(0, material)
 	set_face(Global.player_faces[player_number])
 
 func set_face(face : FaceData):
@@ -34,9 +40,11 @@ func _process(delta):
 
 func jump_to_places(positions : Array[Vector3]):
 	for pos in positions:
-		jumping = true
-		progress = 0
-		from_pos = position
-		to_pos = pos
-		await jumping_false
+		if pos+offset != position:
+			jumping = true
+			progress = 0
+			from_pos = position
+			to_pos = pos
+			to_pos +=offset
+			await jumping_false
 	emit_signal("jumping_finished")

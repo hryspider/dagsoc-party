@@ -8,18 +8,19 @@ enum {ROLLING, DROPPING, DECIDED}
 var state = ROLLING:
 	set(value):
 		state = value
-		if state == ROLLING: angular_velocity = Vector3(randf(), randf(), randf()).normalized()*10
+		if state == ROLLING: pass#angular_velocity = Vector3(randf(), randf(), randf()).normalized()*10
 		else: angular_velocity *= 2
 		gravity_scale = 10 if state == DROPPING else 0
 
 signal dice_output(val)
 
 func _ready():
+	angular_velocity = Vector3(randf(), randf(), randf()).normalized()*10
+	state = ROLLING
+	rotation = Vector3(randf_range(0, 2*PI), randf_range(0, 2*PI), randf_range(0, 2*PI))
 	for i in get_children():
 		if i is DiceValue:
 			value_children.append(i)
-	state = ROLLING
-	rotation = Vector3(randf_range(0, 2*PI), randf_range(0, 2*PI), randf_range(0, 2*PI))
 
 func _physics_process(delta):
 	position.x = lerpf(position.x, initial_pos.x, 1-pow(0.1, 16*delta))

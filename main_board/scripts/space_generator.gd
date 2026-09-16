@@ -6,6 +6,14 @@ const GOLD_DIE = preload("uid://bfxbr3abr5o46")
 const REGULAR_DIE = preload("uid://dll1k7kmi8sn0")
 @onready var camera_3d = $Path3D/PathFollow3D/Camera3D
 @onready var dice_roller = $Path3D/PathFollow3D/DiceRoller
+@onready var path_follow_3d = $Path3D/PathFollow3D
+
+@onready var players = [
+	$PlayerPiece,
+	$PlayerPiece2,
+	$PlayerPiece3,
+	$PlayerPiece4
+]
 
 @export var string_data: String
 @export var path : Path3D
@@ -14,10 +22,24 @@ var space_positions : Array[Vector3] = []
 
 
 func _ready():
+	var still_turns_left = true
 	add_spaces_from_str(string_data)
-	var result = await roll_dice()
-	$PlayerPiece.jump_to_places(space_positions.slice(1, result-1))
-	
+	while true:
+		while still_turns_left:
+			path_follow_3d.target = players[Global.player_turn]
+			await get_tree().create_timer(0.3).timeout
+			print(Global.player_turn)
+			var result = await roll_dice()
+			var current_pos = Global.player_positions[Global.player_turn]
+			var target_pos = current_pos + result
+			if result > 0:
+				print("player jumps to pos " + str(target_pos))
+				await players[Global.player_turn].jump_to_places(space_positions.slice(current_pos, target_pos+1))
+			Global.player_positions[Global.player_turn] = target_pos
+			still_turns_left = Global.next_turn()
+			await get_tree().create_timer(0.5).timeout
+		Global.player_turn = 0
+		still_turns_left = true
 
 func add_spaces_from_str(string):
 	var i = 0
@@ -47,7 +69,8 @@ func add_spaces_from_str(string):
 		add_child(space_inst)
 		space_positions.append(space_inst.position)
 func roll_dice():
-	dice_roller.die_list = [GOLD_DIE.instantiate(), REGULAR_DIE.instantiate(), GOLD_DIE.instantiate()]
+	dice_roller.die_list = [REGULAR_DIE.instantiate()]
+	dice_roller.action = "p%s_button_bottom" % str(Global.player_turn + 1)
 	dice_roller.action = "ui_accept"
 	dice_roller.run()
 	

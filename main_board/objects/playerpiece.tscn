@@ -28,7 +28,7 @@ _surfaces = [{
 [node name="PlayerPiece" type="Node3D" unique_id=1907818496]
 script = ExtResource("1_c76ck")
 
-[node name="Circle2" type="MeshInstance3D" parent="." unique_id=1142072219]
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1142072219]
 mesh = SubResource("ArrayMesh_ghavf")
 
 [node name="Face" type="Node3D" parent="." unique_id=1042092515]

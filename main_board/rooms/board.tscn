@@ -33,7 +33,7 @@ ambient_light_color = Color(0.62355983, 0.6235599, 0.6235597, 1)
 
 [node name="Node3D" type="Node3D" unique_id=881500191 node_paths=PackedStringArray("path")]
 script = ExtResource("1_4jllx")
-string_data = "3453876878768768876876"
+string_data = "012345678900000000"
 path = NodePath("Path3D")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1148195066]
@@ -66,5 +66,14 @@ environment = SubResource("Environment_qt7l3")
 [node name="PlayerPiece" parent="." unique_id=1907818496 instance=ExtResource("2_svsh1")]
 transform = Transform3D(-0.47669056, 0, -0.87904257, 0, 0.9999998, 0, 0.87904257, 0, -0.47669056, 0.30979085, 0.00036621094, -0.56795955)
 
-[node name="Camera3D" type="Camera3D" parent="PlayerPiece" unique_id=924111453]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.6180735)
+[node name="PlayerPiece2" parent="." unique_id=1696047050 instance=ExtResource("2_svsh1")]
+transform = Transform3D(-0.47669056, 0, -0.87904257, 0, 0.9999998, 0, 0.87904257, 0, -0.47669056, 0.30979085, 0.00036621094, 1.411752)
+player_number = 1
+
+[node name="PlayerPiece3" parent="." unique_id=220091764 instance=ExtResource("2_svsh1")]
+transform = Transform3D(-0.47669056, 0, -0.87904257, 0, 0.9999998, 0, 0.87904257, 0, -0.47669056, 1.9939911, 0.00036621094, -0.56795955)
+player_number = 2
+
+[node name="PlayerPiece4" parent="." unique_id=810516300 instance=ExtResource("2_svsh1")]
+transform = Transform3D(-0.47669056, 0, -0.87904257, 0, 0.9999998, 0, 0.87904257, 0, -0.47669056, 2.6763613, 0.00036621094, 1.4437325)
+player_number = 3
