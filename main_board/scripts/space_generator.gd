@@ -10,6 +10,8 @@ const BRONZE_DIE = preload("uid://qdg7m3leedrp")
 @onready var camera_3d = $Path3D/PathFollow3D/Camera3D
 @onready var dice_roller = $Path3D/PathFollow3D/DiceRoller
 @onready var path_follow_3d = $Path3D/PathFollow3D
+@onready var turn_label = $Control/Control/TurnLabel
+@onready var round_label = $Control/Control/RoundLabel
 
 @onready var players = [
 	$PlayerPiece,
@@ -29,6 +31,9 @@ func _ready():
 	add_spaces_from_str(string_data)
 	while true:
 		while still_turns_left:
+			turn_label.text = "Player %s's turn" % str(Global.player_turn+1)
+			turn_label.modulate = Global.PLAYER_COLOURS[Global.player_turn]
+			round_label.text = "Round %s" % str(Global.round)
 			path_follow_3d.target = players[Global.player_turn]
 			await get_tree().create_timer(0.3).timeout
 			print(Global.player_turn)
@@ -42,6 +47,7 @@ func _ready():
 			still_turns_left = Global.next_turn()
 			await get_tree().create_timer(0.5).timeout
 		Global.player_turn = 0
+		Global.round += 1
 		still_turns_left = true
 
 func add_spaces_from_str(string):
@@ -72,7 +78,11 @@ func add_spaces_from_str(string):
 		add_child(space_inst)
 		space_positions.append(space_inst.position)
 func roll_dice():
-	dice_roller.die_list = [SILVER_DIE.instantiate(), BRONZE_DIE.instantiate()]
+	dice_roller.die_list = [REGULAR_DIE.instantiate()]
+	match Global.rankings.get(Global.player_turn):
+		0: dice_roller.die_list.append(GOLD_DIE.instantiate())
+		1: dice_roller.die_list.append(SILVER_DIE.instantiate())
+		2: dice_roller.die_list.append(BRONZE_DIE.instantiate())
 	dice_roller.action = "p%s_button_bottom" % str(Global.player_turn + 1)
 	dice_roller.action = "ui_accept"
 	dice_roller.run()

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://opq7dn6lagp" path="res://main_board/ui/diceroller/DiceRoller.tscn" id="2_7ur1y"]
 [ext_resource type="Script" uid="uid://dfk887ybchhhg" path="res://main_board/objects/path_follow_3d.gd" id="2_ag8c5"]
 [ext_resource type="PackedScene" uid="uid://onpyx3kh26ao" path="res://main_board/objects/playerpiece.tscn" id="2_svsh1"]
+[ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="5_7ur1y"]
 
 [sub_resource type="Curve3D" id="Curve3D_qt7l3"]
 _data = {
@@ -77,3 +78,81 @@ player_number = 2
 [node name="PlayerPiece4" parent="." unique_id=810516300 instance=ExtResource("2_svsh1")]
 transform = Transform3D(-0.47669056, 0, -0.87904257, 0, 0.9999998, 0, 0.87904257, 0, -0.47669056, 2.6763613, 0.00036621094, 1.4437325)
 player_number = 3
+
+[node name="Control" type="CanvasLayer" parent="." unique_id=820799582]
+
+[node name="Control" type="Control" parent="Control" unique_id=1321423628]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/Control" unique_id=1160613645]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -390.0
+offset_right = 872.5547
+offset_bottom = -28.858032
+grow_vertical = 0
+rotation = 0.5039845
+color = Color(0, 0, 0, 0.5254902)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Control" unique_id=778027346]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1181.0
+offset_top = -1248.0
+offset_right = 2064.5547
+offset_bottom = -886.85803
+grow_vertical = 0
+rotation = 0.5039845
+color = Color(0, 0, 0, 0.5254902)
+
+[node name="OrderLabel" type="Label" parent="Control/Control" unique_id=660540959]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -506.0
+offset_right = -17.0
+offset_bottom = 88.0
+grow_horizontal = 0
+theme = ExtResource("5_7ur1y")
+theme_override_font_sizes/font_size = 64
+text = "ORDER"
+horizontal_alignment = 2
+
+[node name="RoundLabel" type="Label" parent="Control/Control" unique_id=1379206466]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -211.0
+offset_right = 383.0
+offset_bottom = -80.0
+grow_vertical = 0
+theme = ExtResource("5_7ur1y")
+theme_override_font_sizes/font_size = 96
+text = "Round 1"
+
+[node name="TurnLabel" type="Label" parent="Control/Control" unique_id=1676238033]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -106.0
+offset_right = 505.0
+offset_bottom = -18.0
+grow_vertical = 0
+theme = ExtResource("5_7ur1y")
+theme_override_font_sizes/font_size = 64
+text = "Player 1's Turn"
