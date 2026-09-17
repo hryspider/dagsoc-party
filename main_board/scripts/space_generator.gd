@@ -2,8 +2,11 @@ extends Node
 const SPACE = preload("uid://bg4yj0u1mh8ic")
 const MOVE_SPACE = preload("uid://rlpqpdee7cfq")
 const DICE_ROLLER = preload("uid://opq7dn6lagp")
-const GOLD_DIE = preload("uid://bfxbr3abr5o46")
+const GOLD_DIE = preload("uid://d206keu1oibo4")
+const SILVER_DIE = preload("uid://bfxbr3abr5o46")
 const REGULAR_DIE = preload("uid://dll1k7kmi8sn0")
+const BRONZE_DIE = preload("uid://qdg7m3leedrp")
+
 @onready var camera_3d = $Path3D/PathFollow3D/Camera3D
 @onready var dice_roller = $Path3D/PathFollow3D/DiceRoller
 @onready var path_follow_3d = $Path3D/PathFollow3D
@@ -69,7 +72,7 @@ func add_spaces_from_str(string):
 		add_child(space_inst)
 		space_positions.append(space_inst.position)
 func roll_dice():
-	dice_roller.die_list = [REGULAR_DIE.instantiate()]
+	dice_roller.die_list = [SILVER_DIE.instantiate(), BRONZE_DIE.instantiate()]
 	dice_roller.action = "p%s_button_bottom" % str(Global.player_turn + 1)
 	dice_roller.action = "ui_accept"
 	dice_roller.run()

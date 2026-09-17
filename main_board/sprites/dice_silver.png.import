@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clbnud3vbojn6"
-path.s3tc="res://.godot/imported/dice_height_displacement.png-fbee84c84ef2f801b07eade456b931a6.s3tc.ctex"
+uid="uid://xkcp50hd2h2v"
+path.s3tc="res://.godot/imported/dice_silver.png-5b7c18d5a8b621bd0eb220653446525c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://main_board/sprites/dice_height_displacement.png"
-dest_files=["res://.godot/imported/dice_height_displacement.png-fbee84c84ef2f801b07eade456b931a6.s3tc.ctex"]
+source_file="res://main_board/sprites/dice_silver.png"
+dest_files=["res://.godot/imported/dice_silver.png-5b7c18d5a8b621bd0eb220653446525c.s3tc.ctex"]
 
 [params]
 
@@ -27,8 +27,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=7
-roughness/src_normal="res://main_board/sprites/dice_bronze_height_normal.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

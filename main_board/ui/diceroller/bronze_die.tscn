@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://d206keu1oibo4"]
+[gd_scene format=3 uid="uid://qdg7m3leedrp"]
 
-[ext_resource type="Script" uid="uid://b1hj5nfnjqa32" path="res://main_board/ui/diceroller/die.gd" id="1_3b8uv"]
-[ext_resource type="PackedScene" uid="uid://b5uj5qu4cjxub" path="res://main_board/3d/dicegold.tscn" id="2_3b8uv"]
-[ext_resource type="Script" uid="uid://dy62yf4kctpa7" path="res://main_board/ui/diceroller/dice_value.gd" id="3_oy8yp"]
+[ext_resource type="Script" uid="uid://b1hj5nfnjqa32" path="res://main_board/ui/diceroller/die.gd" id="1_etbo1"]
+[ext_resource type="PackedScene" uid="uid://biome01wt17ne" path="res://main_board/3d/dicebronze.tscn" id="2_etbo1"]
+[ext_resource type="Script" uid="uid://dy62yf4kctpa7" path="res://main_board/ui/diceroller/dice_value.gd" id="3_ptcd1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yiab3"]
 bounce = 0.64
@@ -15,39 +15,39 @@ mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_yiab3")
 max_contacts_reported = 1
 angular_damp_mode = 1
-script = ExtResource("1_3b8uv")
+script = ExtResource("1_etbo1")
 
-[node name="Gold Die" parent="." unique_id=1716515355 instance=ExtResource("2_3b8uv")]
+[node name="Bronze Die" parent="." unique_id=1716515355 instance=ExtResource("2_etbo1")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=535428661]
 shape = SubResource("BoxShape3D_yiab3")
 
 [node name="1" type="Node3D" parent="." unique_id=615670885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-script = ExtResource("3_oy8yp")
+script = ExtResource("3_ptcd1")
 value = 1
 
 [node name="2" type="Node3D" parent="." unique_id=1804492772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-script = ExtResource("3_oy8yp")
+script = ExtResource("3_ptcd1")
 value = 2
 
 [node name="3" type="Node3D" parent="." unique_id=2053367266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("3_oy8yp")
-value = 3
+script = ExtResource("3_ptcd1")
+value = 2
 
 [node name="4" type="Node3D" parent="." unique_id=1000553517]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-script = ExtResource("3_oy8yp")
-value = 4
+script = ExtResource("3_ptcd1")
+value = 1
 
 [node name="5" type="Node3D" parent="." unique_id=367742527]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-script = ExtResource("3_oy8yp")
-value = 5
+script = ExtResource("3_ptcd1")
+value = 2
 
 [node name="6" type="Node3D" parent="." unique_id=161102422]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-script = ExtResource("3_oy8yp")
-value = 6
+script = ExtResource("3_ptcd1")
+value = 1
