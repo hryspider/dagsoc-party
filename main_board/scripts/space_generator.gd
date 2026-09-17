@@ -12,6 +12,7 @@ const BRONZE_DIE = preload("uid://qdg7m3leedrp")
 @onready var path_follow_3d = $Path3D/PathFollow3D
 @onready var turn_label = $Control/Control/TurnLabel
 @onready var round_label = $Control/Control/RoundLabel
+@onready var order_number_label = $Control/Control/OrderNumberLabel
 
 @onready var players = [
 	$PlayerPiece,
@@ -31,6 +32,7 @@ func _ready():
 	add_spaces_from_str(string_data)
 	while true:
 		while still_turns_left:
+			order_number_label.text = get_order_text()
 			turn_label.text = "Player %s's turn" % str(Global.player_turn+1)
 			turn_label.modulate = Global.PLAYER_COLOURS[Global.player_turn]
 			round_label.text = "Round %s" % str(Global.round)
@@ -91,4 +93,13 @@ func roll_dice():
 	var result = await dice_roller.finished
 	return result
 	
+func get_order_text():
+	var output = ""
+	for i in Global.rankings:
+		if Global.player_turn == i:
+			output += "[wave amp=100.0]"
+		output += "[color=#%s]%s[/color] " % [Global.PLAYER_COLOURS[i].to_html(), str(i+1)]
+		if Global.player_turn == i:
+			output += "[/wave]"
+	return output
 	

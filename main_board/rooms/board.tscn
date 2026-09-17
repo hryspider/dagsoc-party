@@ -121,8 +121,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -506.0
+offset_top = 82.0
 offset_right = -17.0
-offset_bottom = 88.0
+offset_bottom = 170.0
 grow_horizontal = 0
 theme = ExtResource("5_7ur1y")
 theme_override_font_sizes/font_size = 64
@@ -142,6 +143,23 @@ grow_vertical = 0
 theme = ExtResource("5_7ur1y")
 theme_override_font_sizes/font_size = 96
 text = "Round 1"
+
+[node name="OrderNumberLabel" type="RichTextLabel" parent="Control/Control" unique_id=1821696806]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 873.0
+offset_top = -917.0
+offset_right = 1647.0
+offset_bottom = -786.0
+grow_vertical = 0
+theme = ExtResource("5_7ur1y")
+theme_override_font_sizes/normal_font_size = 96
+theme_override_font_sizes/bold_font_size = 96
+bbcode_enabled = true
+text = "[wave]1 [/wave]2 3 4 "
+horizontal_alignment = 2
 
 [node name="TurnLabel" type="Label" parent="Control/Control" unique_id=1676238033]
 layout_mode = 1
