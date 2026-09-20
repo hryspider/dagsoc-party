@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dfk887ybchhhg" path="res://main_board/objects/path_follow_3d.gd" id="2_ag8c5"]
 [ext_resource type="PackedScene" uid="uid://onpyx3kh26ao" path="res://main_board/objects/playerpiece.tscn" id="2_svsh1"]
 [ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="5_7ur1y"]
+[ext_resource type="Texture2D" uid="uid://puxwj1l83lbm" path="res://main_board/sprites/dagdicetile.png" id="7_j2xt5"]
 
 [sub_resource type="Curve3D" id="Curve3D_qt7l3"]
 _data = {
@@ -31,6 +32,105 @@ background_mode = 2
 sky = SubResource("Sky_txsxn")
 ambient_light_source = 2
 ambient_light_color = Color(0.62355983, 0.6235599, 0.6235597, 1)
+
+[sub_resource type="Animation" id="Animation_yye32"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Control/RoundScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Control/RoundScreen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Control/RoundScreen/TextureRect:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mt5nb"]
+resource_name = "newround"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Control/RoundScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Control/RoundScreen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.76666665, 1.9666667, 2.5333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Control/RoundScreen/TextureRect:offset_transform_position_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.6333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.15, -0.15), Vector2(0.15, 0.15)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.6666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"new_round_logic"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j2xt5"]
+_data = {
+&"RESET": SubResource("Animation_yye32"),
+&"newround": SubResource("Animation_mt5nb")
+}
 
 [node name="Node3D" type="Node3D" unique_id=881500191 node_paths=PackedStringArray("path")]
 script = ExtResource("1_4jllx")
@@ -126,6 +226,7 @@ offset_right = -17.0
 offset_bottom = 170.0
 grow_horizontal = 0
 theme = ExtResource("5_7ur1y")
+theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
 theme_override_font_sizes/font_size = 64
 text = "ORDER"
 horizontal_alignment = 2
@@ -158,7 +259,7 @@ theme = ExtResource("5_7ur1y")
 theme_override_font_sizes/normal_font_size = 96
 theme_override_font_sizes/bold_font_size = 96
 bbcode_enabled = true
-text = "[wave]1 [/wave]2 3 4 "
+text = "[pulse freq=1.0 color=#ffffff00 ease=-2.0]1 []2 3 4 "
 horizontal_alignment = 2
 
 [node name="TurnLabel" type="Label" parent="Control/Control" unique_id=1676238033]
@@ -174,3 +275,56 @@ grow_vertical = 0
 theme = ExtResource("5_7ur1y")
 theme_override_font_sizes/font_size = 64
 text = "Player 1's Turn"
+
+[node name="RoundScreen" type="ColorRect" parent="Control/Control" unique_id=1270527089]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control/Control/RoundScreen" unique_id=262868944]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -415.0
+offset_top = -300.0
+offset_right = 415.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("7_j2xt5")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control/Control/RoundScreen" unique_id=2031255843]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4392157)
+
+[node name="NewRoundLabel" type="Label" parent="Control/Control/RoundScreen" unique_id=1218726632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_7ur1y")
+theme_override_font_sizes/font_size = 128
+text = "Round 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2038395971]
+libraries/ = SubResource("AnimationLibrary_j2xt5")

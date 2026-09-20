@@ -6,5 +6,6 @@ class_name MinigameData
 
 @export var title := "Minigame Title"
 @export var author := "DAGsoc"
-@export var description := "This is sample text. It might tell you how to play."
+@export var how_to_play := "This is sample text. It might tell you how to play."
 @export var main_scene_path := "res://main_board/rooms/title.tscn"
+@export var thumbnail : Texture2D

@@ -7,4 +7,4 @@ func _ready():
 
 
 func to_scene():
-	get_tree().change_scene_to_file(scene_path)
+	Transition.transition_to(scene_path)

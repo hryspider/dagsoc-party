@@ -2,11 +2,8 @@
 
 [ext_resource type="Script" uid="uid://k15f4n6ee712" path="res://main_board/ui/character_builder/character_builder.gd" id="1_8vwwu"]
 [ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="1_g2on6"]
-[ext_resource type="Texture2D" uid="uid://bh1j10cye6oap" path="res://main_board/sprites/head.png" id="2_8vwwu"]
 [ext_resource type="Texture2D" uid="uid://cosxu16m4254j" path="res://main_board/sprites/pixelarrow.png" id="3_5lal3"]
-[ext_resource type="Texture2D" uid="uid://bta2ta006dpei" path="res://main_board/sprites/eyes.png" id="3_ax821"]
-[ext_resource type="Texture2D" uid="uid://by542wghjv81p" path="res://main_board/sprites/noses.png" id="4_5lal3"]
-[ext_resource type="Texture2D" uid="uid://d3xq0p1l61iig" path="res://main_board/sprites/mouths.png" id="5_nqgao"]
+[ext_resource type="PackedScene" uid="uid://lj26fn31myw7" path="res://main_board/resources/player_visual_2d/player_visual_2d.tscn" id="4_ac8d8"]
 
 [node name="Control" type="Control" unique_id=2035132255]
 custom_minimum_size = Vector2(300, 0)
@@ -132,42 +129,5 @@ offset_bottom = -232.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Head" type="Sprite2D" parent="Control" unique_id=143548728]
-self_modulate = Color(0.66999996, 0.824, 1, 1)
+[node name="Head" parent="Control" unique_id=1416784719 instance=ExtResource("4_ac8d8")]
 position = Vector2(24, -8)
-scale = Vector2(3.211, 3.211)
-texture = ExtResource("2_8vwwu")
-vframes = 3
-
-[node name="Eyes" type="Sprite2D" parent="Control/Head" unique_id=953360506]
-position = Vector2(-14, -8.995703)
-scale = Vector2(2, 2)
-texture = ExtResource("3_ax821")
-hframes = 5
-vframes = 2
-frame = 2
-
-[node name="Eyes2" type="Sprite2D" parent="Control/Head" unique_id=224708206]
-position = Vector2(14, -8.995703)
-scale = Vector2(2, 2)
-texture = ExtResource("3_ax821")
-flip_h = true
-hframes = 5
-vframes = 2
-frame = 2
-
-[node name="Noses" type="Sprite2D" parent="Control/Head" unique_id=1239889119]
-scale = Vector2(2, 2)
-texture = ExtResource("4_5lal3")
-offset = Vector2(0, 1.72)
-hframes = 5
-vframes = 2
-frame = 4
-
-[node name="Mouths" type="Sprite2D" parent="Control/Head" unique_id=1807351969]
-scale = Vector2(2, 2)
-texture = ExtResource("5_nqgao")
-offset = Vector2(0, 6)
-hframes = 5
-vframes = 2
-frame = 9

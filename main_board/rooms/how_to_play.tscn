@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://clvd72b8rvchi"]
 
+[ext_resource type="Script" uid="uid://cjc08awi3irjh" path="res://main_board/rooms/how_to_play.gd" id="1_kiflc"]
 [ext_resource type="Shader" uid="uid://ds5is36ehacrm" path="res://main_board/shaders/uv_glide.gdshader" id="1_qf038"]
 [ext_resource type="Texture2D" uid="uid://puxwj1l83lbm" path="res://main_board/sprites/dagdicetile.png" id="2_kiflc"]
 [ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="3_pagd5"]
+[ext_resource type="Texture2D" uid="uid://c23dkttokoern" path="res://icon.svg" id="4_pagd5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8c1h6"]
 shader = ExtResource("1_qf038")
 shader_parameter/speed = Vector2(0.1, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_8c1h6"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.5019608)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_txsxn"]
+gradient = SubResource("Gradient_8c1h6")
 
 [node name="How To Play" type="Control" unique_id=995867829]
 layout_mode = 3
@@ -15,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kiflc")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=706572173]
 material = SubResource("ShaderMaterial_8c1h6")
@@ -33,15 +43,85 @@ offset_transform_rotation = 0.15882497
 texture = ExtResource("2_kiflc")
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="." unique_id=782492922]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1252075556]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = 41.0
-offset_top = 5.0
-offset_right = -41.0
-offset_bottom = 93.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_txsxn")
+
+[node name="ThumbnailTexture" type="TextureRect" parent="." unique_id=597009204]
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 21.0
+offset_right = 1579.0
+offset_bottom = 502.0
+texture = ExtResource("4_pagd5")
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="." unique_id=782492922]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 37.0
+offset_right = 1025.0
+offset_bottom = 136.0
 theme = ExtResource("3_pagd5")
 theme_override_font_sizes/font_size = 72
-text = "Minigame Title"
+text = "No minigame chosen!"
+
+[node name="AuthorLabel" type="Label" parent="." unique_id=1117303667]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 140.0
+offset_right = 1033.0
+offset_bottom = 206.0
+theme = ExtResource("3_pagd5")
+theme_override_font_sizes/font_size = 48
+text = "No minigame chosen!"
+
+[node name="How To Play" type="Label" parent="." unique_id=1887004971]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 226.0
+offset_right = 1025.0
+offset_bottom = 297.0
+size_flags_vertical = 8
+theme = ExtResource("3_pagd5")
+theme_override_font_sizes/font_size = 52
+text = "HOW TO PLAY:"
+
+[node name="InstructionsLabel" type="Label" parent="." unique_id=1281032516]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 301.0
+offset_right = 1004.0
+offset_bottom = 353.0
+size_flags_vertical = 8
+theme = ExtResource("3_pagd5")
+theme_override_font_sizes/font_size = 38
+text = "No minigame chosen!"
+autowrap_mode = 2
+
+[node name="Continue Prompt" type="Label" parent="." unique_id=268673290]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_pagd5")
+theme_override_font_sizes/font_size = 48
+text = "- Player 1 press confirm to continue -"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=334192112]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

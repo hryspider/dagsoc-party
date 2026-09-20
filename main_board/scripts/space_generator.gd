@@ -13,6 +13,8 @@ const BRONZE_DIE = preload("uid://qdg7m3leedrp")
 @onready var turn_label = $Control/Control/TurnLabel
 @onready var round_label = $Control/Control/RoundLabel
 @onready var order_number_label = $Control/Control/OrderNumberLabel
+@onready var new_round_label = $Control/Control/RoundScreen/NewRoundLabel
+@onready var animation_player = $AnimationPlayer
 
 @onready var players = [
 	$PlayerPiece,
@@ -30,27 +32,26 @@ var space_positions : Array[Vector3] = []
 func _ready():
 	var still_turns_left = true
 	add_spaces_from_str(string_data)
-	while true:
-		while still_turns_left:
-			order_number_label.text = get_order_text()
-			turn_label.text = "Player %s's turn" % str(Global.player_turn+1)
-			turn_label.modulate = Global.PLAYER_COLOURS[Global.player_turn]
-			round_label.text = "Round %s" % str(Global.round)
-			path_follow_3d.target = players[Global.player_turn]
-			await get_tree().create_timer(0.3).timeout
-			print(Global.player_turn)
-			var result = await roll_dice()
-			var current_pos = Global.player_positions[Global.player_turn]
-			var target_pos = current_pos + result
-			if result > 0:
-				print("player jumps to pos " + str(target_pos))
-				await players[Global.player_turn].jump_to_places(space_positions.slice(current_pos, target_pos+1))
-			Global.player_positions[Global.player_turn] = target_pos
-			still_turns_left = Global.next_turn()
-			await get_tree().create_timer(0.5).timeout
-		Global.player_turn = 0
-		Global.round += 1
-		still_turns_left = true
+	while still_turns_left:
+		order_number_label.text = get_order_text()
+		turn_label.text = "Player %s's turn" % str(Global.player_turn+1)
+		turn_label.modulate = Global.PLAYER_COLOURS[Global.player_turn]
+		round_label.text = "Round %s" % str(Global.round)
+		path_follow_3d.target = players[Global.player_turn]
+		await get_tree().create_timer(0.3).timeout
+		print(Global.player_turn)
+		var result = await roll_dice()
+		var current_pos = Global.player_positions[Global.player_turn]
+		var target_pos = current_pos + result
+		if result > 0:
+			print("player jumps to pos " + str(target_pos))
+			await players[Global.player_turn].jump_to_places(space_positions.slice(current_pos, target_pos+1))
+		Global.player_positions[Global.player_turn] = target_pos
+		still_turns_left = Global.next_turn()
+		await get_tree().create_timer(0.5).timeout
+	Global.round += 1
+	new_round_label.text = "Now starting... Round %s" % str(Global.round)
+	animation_player.play("newround")
 
 func add_spaces_from_str(string):
 	var i = 0
@@ -103,3 +104,5 @@ func get_order_text():
 			output += "[/wave]"
 	return output
 	
+func new_round_logic():
+	Transition.transition_to("res://main_board/rooms/how_to_play.tscn")

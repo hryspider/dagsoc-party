@@ -22,7 +22,7 @@ func next_turn():
 	return true	
 
 var rankings = [0,1,2,3] #Must be set using set_rankings when a minigame ends.
-
+var selected_minigame : MinigameData
 
 func set_rankings(ranks : Array[int]):
 	rankings = []
@@ -32,3 +32,30 @@ func set_rankings(ranks : Array[int]):
 		if i in seen or i < 0 or i > 3: return
 		seen.append(i)
 	rankings = ranks
+
+func load_minigames():
+	var result = []
+	var minigame_dirs = DirAccess.get_directories_at("res://minigames/")
+	print(minigame_dirs)
+	var load_failed_dirs = []
+	for i in minigame_dirs:
+		var dir = "res://minigames/" + i
+		var files = DirAccess.get_files_at(dir)
+		var data = null
+		if files.has("data.tres"):
+			data = load(dir + "/data.tres")
+			if data is MinigameData:
+				result.append(data)
+			else:
+				printerr("Error loading Minigame Data from %s: data.tres is not a MinigameData Resource." % i)
+				data = null
+		else:
+			printerr("Error loading Minigame Data from %s: data.tres not found." % i)
+			print("!!! Your minigame needs a data.tres MinigameData resource file to load.")
+		if data == null:
+			load_failed_dirs.append(i)
+	return result
+
+func end_minigame(ranks : Array[int]):
+	set_rankings(ranks)
+	Transition.transition_to()

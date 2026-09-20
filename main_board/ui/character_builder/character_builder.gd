@@ -4,11 +4,6 @@ extends Control
 #Eyes: Style, Position
 #Nose: Style, Position
 #Mouth: Style, Position
-@onready var head = $Control/Head
-@onready var eyes = $Control/Head/Eyes
-@onready var eyes_2 = $Control/Head/Eyes2
-@onready var noses = $Control/Head/Noses
-@onready var mouths = $Control/Head/Mouths
 @onready var pixelarrow_left = $Label/Container/Pixelarrow
 @onready var pixelarrow_right = $Label/Container/Pixelarrow2
 
@@ -25,14 +20,7 @@ var data : FaceData:
 	set(value):
 		data = value
 		Global.player_faces[player] = data
-		$Control/Head/Eyes.frame = data.eye_type
-		$Control/Head/Eyes2.position = Vector2i(14, -14) + data.eye_position*2
-		$Control/Head/Eyes.position = $Control/Head/Eyes2.position * Vector2(-1, 1)
-		$Control/Head/Eyes2.frame = data.eye_type
-		$Control/Head/Noses.frame = data.nose_type
-		$Control/Head/Mouths.frame = data.mouth_type
-		$Control/Head/Noses.position.y = data.nose_pos*2
-		$Control/Head/Mouths.position.y = data.mouth_pos*2
+		$Control/Head.data = data
 
 var selected_setting = 0:
 	set(value):
@@ -47,7 +35,7 @@ var timer = 0
 		player = value
 		$Player.text = "Player %s" % str(value+1)
 		$Player.set("theme_override_colors/font_outline_color", (Global.PLAYER_COLOURS[value]).blend(Color(0.0, 0.0, 0.0, 0.702)))
-		$Control/Head.self_modulate = Global.PLAYER_COLOURS[value]
+		$Control/Head.player_number = player
 
 func _ready():
 	data = Global.player_faces[player]
@@ -55,7 +43,6 @@ func _ready():
 
 func _process(delta):
 	timer += delta
-	head.frame = posmod(timer*4, 3)
 	pixelarrow_left.offset_transform_position.x = sin(timer*6)*3
 	pixelarrow_right.offset_transform_position.x = -sin(timer*6)*3
 	var left = Input.is_action_just_pressed("p%s_left" % str(player+1))

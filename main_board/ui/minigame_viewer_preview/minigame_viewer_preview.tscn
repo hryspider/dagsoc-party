@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="1_wfo62"]
 
 [sub_resource type="Gradient" id="Gradient_eopu4"]
-colors = PackedColorArray(0.16, 0.0672, 0.13370666, 1, 0.29625666, 0.1922, 0.31, 1)
+colors = PackedColorArray(0.23, 0.0966, 0.19220333, 1, 0.34403998, 0.22320001, 0.36, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xhw5p"]
 gradient = SubResource("Gradient_eopu4")
@@ -71,11 +71,18 @@ theme_override_font_sizes/font_size = 20
 text = "Links to"
 horizontal_alignment = 2
 
-[node name="Description" type="Label" parent="HBoxContainer" unique_id=1886865845]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=1961139185]
 custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="Description" type="Label" parent="HBoxContainer/ScrollContainer" unique_id=1886865845]
+custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 1
 theme = ExtResource("1_wfo62")
 text = "This is a Description"
 autowrap_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
