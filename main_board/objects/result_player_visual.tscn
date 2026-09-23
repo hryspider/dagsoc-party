@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bev0ggf6qrth2"]
+
+[ext_resource type="Script" uid="uid://j1h81aa5prsu" path="res://main_board/objects/result_player_visual.gd" id="1_u317f"]
+[ext_resource type="PackedScene" uid="uid://lj26fn31myw7" path="res://main_board/resources/player_visual_2d/player_visual_2d.tscn" id="1_wmi4y"]
+[ext_resource type="Theme" uid="uid://dw0bjork54lp" path="res://default_theme.tres" id="2_u317f"]
+[ext_resource type="Texture2D" uid="uid://suu33xpc6pki" path="res://main_board/sprites/regulardie.png" id="3_2yvni"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=1839250777]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = 288.0
+offset_right = 105.0
+offset_bottom = -288.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_u317f")
+place = 3
+
+[node name="Control" type="Control" parent="." unique_id=1575504636]
+custom_minimum_size = Vector2(0, 24.79)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Player Visual" parent="Control" unique_id=1416784719 instance=ExtResource("1_wmi4y")]
+scale = Vector2(2.071, 2.071)
+
+[node name="Main Die" type="Sprite2D" parent="Control/Player Visual" unique_id=854470394]
+texture_filter = 1
+position = Vector2(0, -67.88)
+scale = Vector2(3.0480444, 3.0480444)
+texture = ExtResource("3_2yvni")
+
+[node name="Extra Die" type="Sprite2D" parent="Control/Player Visual" unique_id=955119683]
+texture_filter = 1
+position = Vector2(0, -121.960144)
+scale = Vector2(3.0480444, 3.0480444)
+
+[node name="Label" type="Label" parent="." unique_id=1800785765]
+layout_mode = 2
+theme = ExtResource("2_u317f")
+theme_override_font_sizes/font_size = 119
+text = "1st"
+horizontal_alignment = 1

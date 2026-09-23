@@ -58,4 +58,4 @@ func load_minigames():
 
 func end_minigame(ranks : Array[int]):
 	set_rankings(ranks)
-	Transition.transition_to()
+	Transition.transition_to("res://main_board/rooms/results.tscn")
