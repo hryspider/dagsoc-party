@@ -2,5 +2,5 @@
 .godot/
 /android/
 
-# MacOS
 .DS_Store
+.editorconfig
