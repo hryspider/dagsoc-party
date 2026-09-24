@@ -13,6 +13,7 @@ var player = 0
 
 func _ready():
 	$"Control/Player Visual".player_number = player
+	$PlayerLabel.text = "Player %s" % str(player+1)
 	match place:
 		0:
 			$Label.text = "1st"

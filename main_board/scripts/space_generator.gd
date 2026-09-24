@@ -32,6 +32,9 @@ var space_positions : Array[Vector3] = []
 func _ready():
 	var still_turns_left = true
 	add_spaces_from_str(string_data)
+	for i in range(4):
+		players[i].position = space_positions[Global.player_positions[i]]
+	
 	while still_turns_left:
 		order_number_label.text = get_order_text()
 		turn_label.text = "Player %s's turn" % str(Global.player_turn+1)
