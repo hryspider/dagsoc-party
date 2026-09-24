@@ -30,6 +30,7 @@ var space_positions : Array[Vector3] = []
 
 
 func _ready():
+	Global.player_turn = Global.rankings[0]
 	var still_turns_left = true
 	add_spaces_from_str(string_data)
 	for i in range(4):
