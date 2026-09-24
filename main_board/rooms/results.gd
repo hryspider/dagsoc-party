@@ -19,4 +19,4 @@ func _on_timer_timeout():
 
 func _input(event):
 	if continue_prompt.visible and (event.is_action_pressed("p1_button_bottom") or event.is_action_pressed("ui_accept")):
-		Transition.transition_to(Global.selected_minigame.main_scene_path)
+		Transition.transition_to("res://main_board/rooms/board.tscn")
