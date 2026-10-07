@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dph1bb4cq26w4"
-path="res://.godot/imported/golddie.png-80a9ff7b6e0afa1aa4ff85f12953479a.ctex"
+uid="uid://suu33xpc6pki"
+path="res://.godot/imported/regulardie.png-9640a43661cdf9f28a15beed3269c5ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main_board/sprites/golddie.png"
-dest_files=["res://.godot/imported/golddie.png-80a9ff7b6e0afa1aa4ff85f12953479a.ctex"]
+source_file="res://main_board/sprites/regulardie.png"
+dest_files=["res://.godot/imported/regulardie.png-9640a43661cdf9f28a15beed3269c5ff.ctex"]
 
 [params]
 
@@ -26,6 +26,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
+mipmaps/preserve_alpha_test_coverage=false
+mipmaps/alpha_test_threshold=0.5
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt0difs0v8pmq"
-path="res://.godot/imported/logodice.png-a834aef49d44dffa77924972b979657c.ctex"
+uid="uid://cosxu16m4254j"
+path="res://.godot/imported/pixelarrow.png-26d7d41c68fcaf483d7750ef0cb9aecb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main_board/sprites/logodice.png"
-dest_files=["res://.godot/imported/logodice.png-a834aef49d44dffa77924972b979657c.ctex"]
+source_file="res://main_board/sprites/pixelarrow.png"
+dest_files=["res://.godot/imported/pixelarrow.png-26d7d41c68fcaf483d7750ef0cb9aecb.ctex"]
 
 [params]
 
@@ -26,6 +26,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
+mipmaps/preserve_alpha_test_coverage=false
+mipmaps/alpha_test_threshold=0.5
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0
