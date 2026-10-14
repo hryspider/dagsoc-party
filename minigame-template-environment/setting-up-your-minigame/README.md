@@ -44,15 +44,22 @@ Note: arrows p1 actions include keyboard arrows, all other actions set up only f
 
 ### Globals
 
-You need to mount global.gd and transition.gd file to your project for testing
+You need to mount global.gd file to your project for testing
 
 - global.gd is placed in this folder and in "shared/mg-party-interface/" in dagsoc-party
-- mount as Global and Transition respectively with Project > Project Settings... > Globals > Select Script/Scene
+- mount as Global respectively with Project > Project Settings... > Globals > Select Script/Scene
+
+
 
 ## Outputs
 
 Format an array rankings like [3, 0, 2, 1],
-meaning 1st player came fourth, 2nd - 1st, 3rd - 3rd, 4th - second
+meaning:
+
+p4 came 1st,
+p1 - 2nd,
+p2 - 3rd, 
+p3 - 4th
 
 with Global.end_minigame(rankings), this will close your game in dagsoc party
 
