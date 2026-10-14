@@ -6,7 +6,7 @@ const RESULT_PLAYER_VISUAL = preload("uid://bev0ggf6qrth2")
 
 func _ready():
 	var place = 0
-	for i in Global.rankings:
+	for i in PartyState.rankings:
 		var result_inst = RESULT_PLAYER_VISUAL.instantiate()
 		result_inst.place = place
 		result_inst.player = i

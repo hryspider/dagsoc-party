@@ -30,31 +30,31 @@ var space_positions : Array[Vector3] = []
 
 
 func _ready():
-	Global.player_turn = Global.rankings[0]
+	PartyState.player_turn = PartyState.rankings[0]
 	var still_turns_left = true
 	add_spaces_from_str(string_data)
 	for i in range(4):
-		players[i].position = space_positions[Global.player_positions[i]]
+		players[i].position = space_positions[PartyState.player_positions[i]]
 	
 	while still_turns_left:
 		order_number_label.text = get_order_text()
-		turn_label.text = "Player %s's turn" % str(Global.player_turn+1)
-		turn_label.modulate = Global.PLAYER_COLOURS[Global.player_turn]
-		round_label.text = "Round %s" % str(Global.round)
-		path_follow_3d.target = players[Global.player_turn]
+		turn_label.text = "Player %s's turn" % str(PartyState.player_turn+1)
+		turn_label.modulate = Global.PLAYER_COLOURS[PartyState.player_turn]
+		round_label.text = "Round %s" % str(PartyState.round)
+		path_follow_3d.target = players[PartyState.player_turn]
 		await get_tree().create_timer(0.3).timeout
-		print(Global.player_turn)
+		print(PartyState.player_turn)
 		var result = await roll_dice()
-		var current_pos = Global.player_positions[Global.player_turn]
+		var current_pos = PartyState.player_positions[PartyState.player_turn]
 		var target_pos = current_pos + result
 		if result > 0:
 			print("player jumps to pos " + str(target_pos))
-			await players[Global.player_turn].jump_to_places(space_positions.slice(current_pos, target_pos+1))
-		Global.player_positions[Global.player_turn] = target_pos
-		still_turns_left = Global.next_turn()
+			await players[PartyState.player_turn].jump_to_places(space_positions.slice(current_pos, target_pos+1))
+		PartyState.player_positions[PartyState.player_turn] = target_pos
+		still_turns_left = PartyState.next_turn()
 		await get_tree().create_timer(0.5).timeout
-	Global.round += 1
-	new_round_label.text = "Now starting... Round %s" % str(Global.round)
+	PartyState.round += 1
+	new_round_label.text = "Now starting... Round %s" % str(PartyState.round)
 	animation_player.play("newround")
 
 func add_spaces_from_str(string):
@@ -86,11 +86,11 @@ func add_spaces_from_str(string):
 		space_positions.append(space_inst.position)
 func roll_dice():
 	dice_roller.die_list = [REGULAR_DIE.instantiate()]
-	match Global.rankings.get(Global.player_turn):
+	match PartyState.rankings.get(PartyState.player_turn):
 		0: dice_roller.die_list.append(GOLD_DIE.instantiate())
 		1: dice_roller.die_list.append(SILVER_DIE.instantiate())
 		2: dice_roller.die_list.append(BRONZE_DIE.instantiate())
-	dice_roller.action = "p%s_button_bottom" % str(Global.player_turn + 1)
+	dice_roller.action = "p%s_button_bottom" % str(PartyState.player_turn + 1)
 	dice_roller.action = "ui_accept"
 	dice_roller.run()
 	
@@ -100,11 +100,11 @@ func roll_dice():
 	
 func get_order_text():
 	var output = ""
-	for i in Global.rankings:
-		if Global.player_turn == i:
+	for i in PartyState.rankings:
+		if PartyState.player_turn == i:
 			output += "[wave amp=100.0]"
 		output += "[color=#%s]%s[/color] " % [Global.PLAYER_COLOURS[i].to_html(), str(i+1)]
-		if Global.player_turn == i:
+		if PartyState.player_turn == i:
 			output += "[/wave]"
 	return output
 	

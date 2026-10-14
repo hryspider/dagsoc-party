@@ -30,6 +30,7 @@ func run():
 		
 
 func _input(event):
+	# TODO: dice are intialised after input can be registered, which results in "Unable to iterate on object of type 'Nil'."
 	if Input.is_action_just_pressed(action) and not rolled:
 		rolled = true
 		for i in die_list:

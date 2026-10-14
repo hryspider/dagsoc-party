@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3d55skboy4ow"]
 
-[ext_resource type="Script" uid="uid://d3o5kx5pk6hyt" path="res://main_board/global/transition.gd" id="1_3r204"]
+[ext_resource type="Script" uid="uid://d3o5kx5pk6hyt" path="res://main_board/party-internal-global/transition.gd" id="1_mkt2t"]
 
 [sub_resource type="Animation" id="Animation_xtbcj"]
 length = 0.001
@@ -59,7 +59,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3r204")
+script = ExtResource("1_mkt2t")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1246770694]
 z_index = 999
